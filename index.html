@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lashed by Savage - Luxury Lash Tech</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#FD66C3',secondary:'#1A1A1A'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&family=Abril+Fatface&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+background-color: #0D0D0D;
+color: #E5E5E5;
+font-family: 'Poppins', sans-serif;
+}
+h1, h2, h3 {
+font-family: 'Playfair Display', serif;
+font-weight: 700;
+}
+.abril {
+font-family: 'Abril Fatface', cursive;
+}
+.inter {
+font-family: 'Inter', sans-serif;
+}
+.glass {
+background: rgba(255, 255, 255, 0.05);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.service-card:hover {
+box-shadow: 0 0 25px rgba(253, 102, 195, 0.4);
+transform: translateY(-5px);
+}
+.gallery-item:hover .overlay {
+opacity: 1;
+}
+.cta-button {
+position: relative;
+}
+.cta-button:after {
+content: '';
+position: absolute;
+top: -5px;
+left: -5px;
+right: -5px;
+bottom: -5px;
+border-radius: 12px;
+background: linear-gradient(45deg, #FD66C3, #ff9ed8);
+z-index: -1;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+.cta-button:hover:after {
+opacity: 0.6;
+}
+.pulse {
+animation: pulse 2s infinite;
+}
+@keyframes pulse {
+0% {
+box-shadow: 0 0 0 0 rgba(253, 102, 195, 0.7);
+}
+70% {
+box-shadow: 0 0 0 15px rgba(253, 102, 195, 0);
+}
+100% {
+box-shadow: 0 0 0 0 rgba(253, 102, 195, 0);
+}
+}
+input, textarea {
+background-color: rgba(255, 255, 255, 0.05);
+border: 1px solid rgba(255, 255, 255, 0.1);
+color: #fff;
+}
+input:focus, textarea:focus {
+border-color: #FD66C3;
+outline: none;
+}
+.testimonial-card {
+scroll-snap-align: center;
+}
+.testimonials-container {
+scroll-snap-type: x mandatory;
+}
+/* Custom checkbox */
+.custom-checkbox {
+position: relative;
+padding-left: 35px;
+cursor: pointer;
+user-select: none;
+}
+.custom-checkbox input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 24px;
+width: 24px;
+background-color: rgba(255, 255, 255, 0.05);
+border: 1px solid rgba(255, 255, 255, 0.2);
+border-radius: 4px;
+}
+.custom-checkbox:hover input ~ .checkmark {
+background-color: rgba(255, 255, 255, 0.1);
+}
+.custom-checkbox input:checked ~ .checkmark {
+background-color: #FD66C3;
+border-color: #FD66C3;
+}
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+display: block;
+}
+.custom-checkbox .checkmark:after {
+left: 9px;
+top: 5px;
+width: 6px;
+height: 12px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-opacity-80 backdrop-blur-md bg-secondary">
+<div class="container mx-auto px-6 py-4">
+<div class="flex justify-between items-center">
+<a href="#" class="flex items-center">
+<img src="https://static.readdy.ai/image/92a63dccfd8ac39682f6f1dc4bfb924c/ba7ce0bb7f046b46e4b22297dfcf0b09.png" alt="Lashed by Savage" class="h-24 w-auto">
+</a>
+<div class="hidden md:flex space-x-8 inter text-sm font-light ml-auto">
+<a href="#about" class="text-white hover:text-primary transition">ABOUT</a>
+<a href="#services" class="text-white hover:text-primary transition">SERVICES</a>
+<a href="#gallery" class="text-white hover:text-primary transition">GALLERY</a>
+<a href="#testimonials" class="text-white hover:text-primary transition">TESTIMONIALS</a>
+<a href="#contact" class="text-white hover:text-primary transition">CONTACT</a>
+</div>
+<div class="md:hidden w-8 h-8 flex items-center justify-center">
+<i class="ri-menu-line ri-lg text-white"></i>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center" style="background-image: url('https://static.readdy.ai/image/92a63dccfd8ac39682f6f1dc4bfb924c/9fdbbe3b616d065a628202203d992867.png'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-80"></div>
+<div class="container mx-auto px-6 z-10 text-center md:text-left md:ml-20 w-full">
+<div class="max-w-2xl">
+<h1 class="text-5xl md:text-7xl font-bold mb-4 text-white leading-tight">Luxury Lashes.<br>Savage Energy.</h1>
+<p class="text-lg md:text-xl text-gray-200 mb-8">Elevate your look with premium lash artistry that makes a statement.</p>
+<a href="#book" class="inline-block px-8 py-3 bg-primary text-white font-semibold !rounded-button cta-button pulse whitespace-nowrap">BOOK NOW</a>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+<div class="w-10 h-10 flex items-center justify-center glass rounded-full">
+<i class="ri-arrow-down-line ri-lg text-white"></i>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section id="about" class="py-20 bg-secondary">
+<div class="container mx-auto px-6">
+<div class="flex flex-col md:flex-row items-center gap-12">
+<div class="w-full md:w-1/2">
+<div class="relative rounded overflow-hidden">
+<img src="https://static.readdy.ai/image/92a63dccfd8ac39682f6f1dc4bfb924c/f40e9826892d1198eb3e4c2f832f464a.png" alt="About Lashed by Savage" class="w-full h-auto object-cover">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-60"></div>
+</div>
+</div>
+<div class="w-full md:w-1/2">
+<h2 class="text-4xl md:text-5xl font-bold mb-6 text-white">Unleash Your <span class="text-primary">Savage</span> Beauty</h2>
+<div class="glass p-8 rounded-lg">
+<p class="mb-4 text-gray-200">Founded by a passionate lash artist with over 8 years of experience, Lashed by Savage brings premium lash artistry to those who refuse to compromise on quality and style.</p>
+<p class="mb-6 text-gray-200">Our philosophy is simple: every client deserves a customized lash experience that enhances their natural beauty while making a bold statement. We don't just apply lashes – we create confidence.</p>
+<div class="flex items-center space-x-4">
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary/20">
+<i class="ri-award-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="text-white font-medium">Premium Products</h4>
+<p class="text-sm text-gray-300">Only the finest lash materials touch your eyes</p>
+</div>
+</div>
+<div class="flex items-center space-x-4 mt-4">
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary/20">
+<i class="ri-user-star-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="text-white font-medium">Expert Technique</h4>
+<p class="text-sm text-gray-300">Precision application for maximum comfort & longevity</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section id="services" class="py-20 bg-black">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">Our <span class="text-primary">Services</span></h2>
+<p class="text-gray-300 max-w-2xl mx-auto">Choose your level of drama with our premium lash services, each customized to your unique eye shape and desired look.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Classic Lashes -->
+<div class="service-card glass p-8 rounded-lg transition-all duration-300">
+<div class="w-16 h-16 flex items-center justify-center rounded-full bg-primary/20 mb-6 mx-auto">
+<i class="ri-eye-line ri-lg text-primary"></i>
+</div>
+<h3 class="abril text-xl text-center mb-2 text-white">Classic Lashes</h3>
+<p class="text-gray-300 text-center mb-4">One extension per natural lash for an enhanced yet natural look.</p>
+<p class="text-primary text-center text-2xl font-light">$120</p>
+</div>
+<!-- Hybrid Lashes -->
+<div class="service-card glass p-8 rounded-lg transition-all duration-300">
+<div class="w-16 h-16 flex items-center justify-center rounded-full bg-primary/20 mb-6 mx-auto">
+<i class="ri-eye-2-line ri-lg text-primary"></i>
+</div>
+<h3 class="abril text-xl text-center mb-2 text-white">Hybrid Lashes</h3>
+<p class="text-gray-300 text-center mb-4">Perfect blend of classic and volume for textured dimension.</p>
+<p class="text-primary text-center text-2xl font-light">$150</p>
+</div>
+<!-- Volume Lashes -->
+<div class="service-card glass p-8 rounded-lg transition-all duration-300">
+<div class="w-16 h-16 flex items-center justify-center rounded-full bg-primary/20 mb-6 mx-auto">
+<i class="ri-eye-close-line ri-lg text-primary"></i>
+</div>
+<h3 class="abril text-xl text-center mb-2 text-white">Volume Lashes</h3>
+<p class="text-gray-300 text-center mb-4">Multiple extensions per natural lash for a fluffy, full effect.</p>
+<p class="text-primary text-center text-2xl font-light">$180</p>
+</div>
+<!-- Mega Volume -->
+<div class="service-card glass p-8 rounded-lg transition-all duration-300">
+<div class="w-16 h-16 flex items-center justify-center rounded-full bg-primary/20 mb-6 mx-auto">
+<i class="ri-fire-line ri-lg text-primary"></i>
+</div>
+<h3 class="abril text-xl text-center mb-2 text-white">Mega Volume</h3>
+<p class="text-gray-300 text-center mb-4">Maximum drama with ultra-fine extensions for the boldest look.</p>
+<p class="text-primary text-center text-2xl font-light">$220</p>
+</div>
+</div>
+<div class="mt-16 text-center">
+<p class="text-gray-300 mb-6">All services include consultation, custom styling, and aftercare advice</p>
+<a href="#book" class="inline-block px-8 py-3 bg-primary text-white font-semibold !rounded-button cta-button whitespace-nowrap">VIEW FULL PRICE LIST</a>
+</div>
+</div>
+</section>
+<!-- Gallery Section -->
+<section id="gallery" class="py-20 bg-secondary">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">The <span class="text-primary">Savage</span> Gallery</h2>
+<p class="text-gray-300 max-w-2xl mx-auto">See the artistry and precision behind our most stunning lash transformations.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Gallery Item 1 -->
+<div class="gallery-item relative rounded overflow-hidden aspect-square">
+<img src="https://static.readdy.ai/image/92a63dccfd8ac39682f6f1dc4bfb924c/e66e276a543fc696a682dc24fe7edcd3.png" alt="Lash Gallery 1" class="w-full h-full object-cover">
+<div class="overlay absolute inset-0 bg-primary/60 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+<p class="text-white font-bold">Mega Volume</p>
+</div>
+</div>
+<!-- Gallery Item 2 -->
+<div class="gallery-item relative rounded overflow-hidden aspect-square">
+<img src="https://static.readdy.ai/image/92a63dccfd8ac39682f6f1dc4bfb924c/0441878268523b19249b0c563fe613f8.png" alt="Lash Gallery 2" class="w-full h-full object-cover">
+<div class="overlay absolute inset-0 bg-primary/60 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+<p class="text-white font-bold">Classic Lashes</p>
+</div>
+</div>
+<!-- Gallery Item 3 -->
+<div class="gallery-item relative rounded overflow-hidden aspect-square">
+<img src="https://static.readdy.ai/image/92a63dccfd8ac39682f6f1dc4bfb924c/9b6968976ce69ba992648bbcafcd4222.png" alt="Lash Gallery 3" class="w-full h-full object-cover">
+<div class="overlay absolute inset-0 bg-primary/60 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+<p class="text-white font-bold">Hybrid Style</p>
+</div>
+</div>
+</div>
+<div class="mt-10 text-center">
+<a href="#" class="inline-block px-6 py-3 glass text-white font-medium !rounded-button hover:bg-primary/10 transition whitespace-nowrap">VIEW MORE ON INSTAGRAM</a>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-20 bg-black">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">Savage <span class="text-primary">Reviews</span></h2>
+<p class="text-gray-300 max-w-2xl mx-auto">Hear what our clients have to say about their lash transformation experience.</p>
+</div>
+<div class="testimonials-container overflow-x-auto pb-8 flex gap-6">
+<!-- Testimonial 1 -->
+<div class="testimonial-card glass p-8 rounded-lg border-l-4 border-primary min-w-[320px] md:min-w-[400px]">
+<div class="flex text-primary mb-4">
+<i class="ri-star-fill ri-fw"></i>
+<i class="ri-star-fill ri-fw"></i>
+<i class="ri-star-fill ri-fw"></i>
+<i class="ri-star-fill ri-fw"></i>
+<i class="ri-star-fill ri-fw"></i>
+</div>
+<p class="text-gray-200 italic mb-6">"I've never felt more confident than after getting my lashes done at Lashed by Savage. The attention to detail is unmatched, and the results are absolutely stunning. I'm a client for life!"</p>
+<p class="font-medium text-white">Olivia Richardson</p>
+<p class="text-sm text-gray-400">Mega Volume Client</p>
+</div>
+<!-- Testimonial 2 -->
+<div class="testimonial-card glass p-8 rounded-lg border-l-4 border-primary min-w-[320px] md:min-w-[400px]">
+<div class="flex text-primary mb-4">
+<i class="ri-star-fill ri-fw"></i>
+<i class="ri-star-fill ri-fw"></i>
+<i class="ri-star-fill ri-fw"></i>
+<i class="ri-star-fill ri-fw"></i>
+<i class="ri-star-fill ri-fw"></i>
+</div>
+<p class="text-gray-200 italic mb-6">"The hybrid set I got was exactly what I wanted - natural enough for everyday but with enough drama for nights out. The application was so comfortable I actually fell asleep during my appointment!"</p>
+<p class="font-medium text-white">Madison Taylor</p>
+<p class="text-sm text-gray-400">Hybrid Lashes Client</p>
+</div>
+<!-- Testimonial 3 -->
+<div class="testimonial-card glass p-8 rounded-lg border-l-4 border-primary min-w-[320px] md:min-w-[400px]">
+<div class="flex text-primary mb-4">
+<i class="ri-star-fill ri-fw"></i>
+<i class="ri-star-fill ri-fw"></i>
+<i class="ri-star-fill ri-fw"></i>
+<i class="ri-star-fill ri-fw"></i>
+<i class="ri-star-fill ri-fw"></i>
+</div>
+<p class="text-gray-200 italic mb-6">"As someone who's tried many lash techs, I can confidently say Lashed by Savage is in a league of its own. The studio is luxurious, the service is impeccable, and my lashes are absolute perfection."</p>
+<p class="font-medium text-white">Jasmine Williams</p>
+<p class="text-sm text-gray-400">Volume Lashes Client</p>
+</div>
+<!-- Testimonial 4 -->
+<div class="testimonial-card glass p-8 rounded-lg border-l-4 border-primary min-w-[320px] md:min-w-[400px]">
+<div class="flex text-primary mb-4">
+<i class="ri-star-fill ri-fw"></i>
+<i class="ri-star-fill ri-fw"></i>
+<i class="ri-star-fill ri-fw"></i>
+<i class="ri-star-fill ri-fw"></i>
+<i class="ri-star-fill ri-fw"></i>
+</div>
+<p class="text-gray-200 italic mb-6">"The classic set I received was anything but basic. Perfectly tailored to my eye shape and exactly the right length. I've never received so many compliments!"</p>
+<p class="font-medium text-white">Alexandra Bennett</p>
+<p class="text-sm text-gray-400">Classic Lashes Client</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Booking Section -->
+<section id="book" class="py-20 relative">
+<div class="absolute inset-0" style="background: linear-gradient(to right, #0D0D0D, #1A1A1A);"></div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="max-w-4xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">Embrace Your <span class="text-primary">Savage</span> Side</h2>
+<p class="text-gray-300">Book your premium lash appointment and transform your look today.</p>
+</div>
+<div class="glass p-8 rounded-lg">
+<form>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div>
+<label class="block text-white mb-2">Full Name</label>
+<input type="text" class="w-full px-4 py-3 rounded border-none focus:ring-2 focus:ring-primary" placeholder="Your name">
+</div>
+<div>
+<label class="block text-white mb-2">Email Address</label>
+<input type="email" class="w-full px-4 py-3 rounded border-none focus:ring-2 focus:ring-primary" placeholder="Your email">
+</div>
+<div>
+<label class="block text-white mb-2">Phone Number</label>
+<input type="tel" class="w-full px-4 py-3 rounded border-none focus:ring-2 focus:ring-primary" placeholder="Your phone">
+</div>
+<div>
+<label class="block text-white mb-2">Preferred Date</label>
+<input type="date" class="w-full px-4 py-3 rounded border-none focus:ring-2 focus:ring-primary bg-opacity-10">
+</div>
+</div>
+<div class="mb-6">
+<label class="block text-white mb-2">Service Type</label>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<label class="custom-checkbox">
+<input type="radio" name="service" checked>
+<span class="checkmark"></span>
+Classic Lashes
+</label>
+<label class="custom-checkbox">
+<input type="radio" name="service">
+<span class="checkmark"></span>
+Hybrid Lashes
+</label>
+<label class="custom-checkbox">
+<input type="radio" name="service">
+<span class="checkmark"></span>
+Volume Lashes
+</label>
+<label class="custom-checkbox">
+<input type="radio" name="service">
+<span class="checkmark"></span>
+Mega Volume
+</label>
+</div>
+</div>
+<div class="mb-6">
+<label class="block text-white mb-2">Special Requests</label>
+<textarea rows="4" class="w-full px-4 py-3 rounded border-none focus:ring-2 focus:ring-primary" placeholder="Any specific requests or questions?"></textarea>
+</div>
+<div class="text-center">
+<button type="submit" class="px-8 py-3 bg-primary text-white font-semibold !rounded-button cta-button pulse whitespace-nowrap">BOOK YOUR APPOINTMENT</button>
+</div>
+</form>
+</div>
+<div class="mt-12 text-center">
+<p class="text-gray-300 mb-4">Or contact us directly</p>
+<div class="flex justify-center space-x-6">
+<a href="tel:+14692852840" class="flex items-center text-white hover:text-primary transition">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/20 mr-2">
+<i class="ri-phone-line ri-lg"></i>
+</div>
+(469) 285-2840
+</a>
+<a href="mailto:bosmanbraniyah@gmail.com" class="flex items-center text-white hover:text-primary transition">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/20 mr-2">
+<i class="ri-mail-line ri-lg"></i>
+</div>
+bosmanbraniyah@gmail.com
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="py-12 bg-black">
+<div class="container mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-center mb-12">
+<a href="#" class="mb-6 md:mb-0">
+<img src="https://static.readdy.ai/image/92a63dccfd8ac39682f6f1dc4bfb924c/ba7ce0bb7f046b46e4b22297dfcf0b09.png" alt="Lashed by Savage" class="h-32 w-auto">
+</a>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/20 text-white hover:bg-primary transition">
+<i class="ri-instagram-line ri-lg"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/20 text-white hover:bg-primary transition">
+<i class="ri-facebook-line ri-lg"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/20 text-white hover:bg-primary transition">
+<i class="ri-tiktok-line ri-lg"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/20 text-white hover:bg-primary transition">
+<i class="ri-pinterest-line ri-lg"></i>
+</a>
+</div>
+</div>
+<hr class="border-gray-800 mb-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+<div>
+<h4 class="text-white font-medium mb-4">Location</h4>
+<p class="text-gray-400">Mesquite</p>
+<p class="text-gray-400">Texas</p>
+<p class="text-gray-400">United States</p>
+</div>
+<div>
+<h4 class="text-white font-medium mb-4">Hours</h4>
+<p class="text-gray-400">Monday - Friday: 10am - 8pm</p>
+<p class="text-gray-400">Saturday: 10am - 6pm</p>
+<p class="text-gray-400">Sunday: Closed</p>
+</div>
+<div>
+<h4 class="text-white font-medium mb-4">Contact</h4>
+<p class="text-gray-400">(469) 285-2840</p>
+<p class="text-gray-400">bosmanbraniyah@gmail.com</p>
+</div>
+<div>
+<h4 class="text-white font-medium mb-4">Follow Us</h4>
+<p class="text-gray-400">Stay connected on social media for daily inspiration and updates</p>
+</div>
+</div>
+<div class="text-center text-gray-500 text-sm">
+<p>&copy; 2025 Lashed by Savage. All rights reserved.</p>
+<p class="mt-2">
+<a href="#" class="text-gray-500 hover:text-primary mr-4">Privacy Policy</a>
+<a href="#" class="text-gray-500 hover:text-primary mr-4">Terms of Service</a>
+<a href="#" class="text-gray-500 hover:text-primary">Cancellation Policy</a>
+</p>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+}
+});
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Auto-scroll testimonials
+const testimonialContainer = document.querySelector('.testimonials-container');
+let scrollInterval;
+function startAutoScroll() {
+scrollInterval = setInterval(() => {
+testimonialContainer.scrollLeft += 2;
+// Reset scroll position when reaching the end
+if (testimonialContainer.scrollLeft >= testimonialContainer.scrollWidth - testimonialContainer.clientWidth) {
+testimonialContainer.scrollLeft = 0;
+}
+}, 30);
+}
+startAutoScroll();
+// Pause auto-scroll on hover
+testimonialContainer.addEventListener('mouseenter', () => {
+clearInterval(scrollInterval);
+});
+testimonialContainer.addEventListener('mouseleave', () => {
+startAutoScroll();
+});
+});
+</script>
+</body>
+</html>
